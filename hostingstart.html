@@ -1,0 +1,447 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>iTour</title>
+
+<meta name="viewport" content ="width=device-width,initial-scale=1,user-scalable=yes" />
+<meta charset="UTF-8">
+<link rel="icon" type="image/x-icon" href="images.png">
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+<link rel="stylesheet" href="w3.css">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ <link href="bootstrap-min.css" rel="stylesheet" id="bootstrap-css">
+<script src="bootstrap-min.js"></script>
+
+
+  <script src="jquery-min.js"></script>
+  <script src="popper-min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+</head>
+<body  style="width:100%; background-color: #E6E6E6">
+
+<!-- Header -->
+<header class="w3-display-container w3-content w3-center " style="max-width:1500px">
+    <a href="hostingstart.html">
+        <img src="pan.JPG" alt="Me" width="100%" height="300">
+    </a>
+    <div class="w3-display-middle w3-padding-large w3-border w3-wide w3-text-light-grey w3-center">
+        <a href="hostingstart.html" style="color:white;text-decoration:none"> <h1 class="w3-hide-medium w3-hide-small w3-xxxlarge">ארץ ישראל</h1></a>
+
+        <h3 class="w3-hide-medium w3-hide-small">טיולי טבע</h3>
+    </div>
+  
+  <!-- Navbar (placed at the bottom of the header image) -->
+  <div align="right" class="w3-bar w3-light-grey w3-round w3-display-bottommiddle w3-hide-small"  style="bottom:-16px">
+      <a href="third.html?area=צפון" class="w3-bar-item w3-button">אתרים בצפון</a>
+      <a href="third.html?area=מרכז" class="w3-bar-item w3-button">אתרים במרכז</a>
+      <a href="third.html?area=דרום" class="w3-bar-item w3-button">אתרים בדרום </a>
+
+
+  </div>
+  
+</header>
+<br>
+
+    <div method="post" id="form" align="right" style="border: 5px solid gray;  width: 20%; height: 1070px; float:right;margin-right:20px; margin-top: 200px">
+        <label for="serach">:חיפוש</label>
+        <br><br>
+        <input type='text' list='dataList' data-key='se' id='search-input' style= "width:100%">
+        <datalist id="dataList">
+            
+        </datalist>
+        <br>
+        <br>
+    <input type="button" id="search-btn" align="right" style= "margin-right:20px; color:blue;width:100%" value="חפש">
+    
+  
+	<hr style="height:3px;background-color:grey;" />
+	
+      	
+
+<div class="card">
+<header class="card-header">
+			<h6 class="title">מאפיינים </h6>
+		</header>
+	<div align="right" class="filter-content">
+			<div class="card-body">
+			
+				<label class="form-check">
+				  
+				  <span class="form-check-label" style="padding-right: 25px; " >
+                      מתאים למשפחה  
+				  </span>
+                    <input class="form-check-input" type="checkbox" id="family" style="float: right;">
+				</label> <!-- form-check.// -->
+				<label class="form-check">
+				  
+                    <span class="form-check-label" style="padding-right: 25px; ">
+                        שחייה
+                    </span><input class="form-check-input" type="checkbox" id="swimming" style="float: right;">
+				</label>  <!-- form-check.// -->
+				<label class="form-check">
+				  
+                    <span class="form-check-label" style="padding-right: 25px; ">
+                        חינמי
+                    </span><input class="form-check-input" type="checkbox" id="free" style="float: right;">
+				</label> 
+                <label class="form-check">
+                    
+                    <span class="form-check-label" style="padding-right: 25px; ">
+                        מותר על האש
+                    </span><input class="form-check-input" type="checkbox" id="fire" style="float: right;">
+                </label>
+                <label class="form-check">
+                    
+                    <span class="form-check-label" style="padding-right: 25px; ">
+                        מסלול הליכה
+                    </span><input class="form-check-input" type="checkbox" id="walking" style="float: right;">
+                </label>
+                <label class="form-check">
+                    
+                    <span class="form-check-label" style="padding-right: 25px; ">
+                        מתאים לאופניים
+                    </span><input class="form-check-input" type="checkbox" id="bicycle" style="float: right;">
+                </label>
+                <label class="form-check">
+                    
+                    <span class="form-check-label" style="padding-right: 25px; ">
+                        מתאים לנכים
+                    </span><input class="form-check-input" type="checkbox" id="wheelchair" style="float: right;">
+                </label>
+
+			</div> <!-- card-body.// -->
+		</div>
+	<header class="card-header">
+			<h6 class="title">אזור </h6>
+		</header>
+		<div class="filter-content">
+			<div class="card-body" id="areaGroup">
+                <label class="form-check" >
+
+                    <span align="right" class="form-check-label" style="padding-right: 25px;">
+                        הכל
+                    </span><input class="form-check-input" type="radio" name="areaZone" value="הכל" checked="checked"  style="float: right;">
+                </label>
+			<label class="form-check">
+			  
+			  <span align="right" class="form-check-label" style="padding-right: 25px;">
+			    צפון
+			  </span><input class="form-check-input" type="radio" name="areaZone" value="צפון"  style="float: right;">
+			</label>
+			<label class="form-check">
+			  
+			  <span class="form-check-label" style="padding-right: 25px;">
+			    מרכז
+			  </span><input class="form-check-input" type="radio" name="areaZone" value="מרכז"  style="float: right;">
+			</label>
+			<label class="form-check">
+			  
+			  <span class="form-check-label" style="padding-right: 25px;">
+			    דרום
+			  </span><input class="form-check-input" type="radio" name="areaZone" value="דרום"  style="float: right;">
+			</label>
+			</div> <!-- card-body.// -->
+		</div>
+    <header class="card-header">
+        <h6 class="title"> טווח דירוג</h6>
+    </header>
+    <div class="filter-content">
+        <div class="card-body">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label>Min</label>
+                    <select id="minRating">
+                        <option value="1" selected>1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-6 text-right">
+                    <label>Max</label>
+                    <select id="maxRating">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5" selected>5</option>
+                    </select>
+                </div>
+            </div>
+        </div> <!-- card-body.// -->
+    </div>
+	<header class="card-header">
+			<h6 class="title">סוגי טבע </h6>
+		</header>
+		<div class="filter-content">
+			<div class="card-body">
+				<div class="custom-control custom-checkbox">
+					
+                    <label class="form-check">
+
+                        <span class="form-check-label" style="padding-right: 25px; ">
+                            מים
+                        </span>
+                        <input class="form-check-input" type="checkbox" id="water" style="float: right;">
+                    </label> <!-- form-check.// -->
+                    <label class="form-check">
+
+                        <span class="form-check-label" style="padding-right: 25px; ">
+                            נחל
+                        </span><input class="form-check-input" type="checkbox" id="river" style="float: right;">
+                    </label>  <!-- form-check.// -->
+                    <label class="form-check">
+
+                        <span class="form-check-label" style="padding-right: 25px; ">
+                            אגם
+                        </span><input class="form-check-input" type="checkbox" id="lake" style="float: right;">
+                    </label>
+                    <label class="form-check">
+
+                        <span class="form-check-label" style="padding-right: 25px; ">
+                            פארק
+                        </span><input class="form-check-input" type="checkbox" id="park" style="float: right;">
+                    </label>
+                    <label class="form-check">
+
+                        <span class="form-check-label" style="padding-right: 25px; ">
+                            נקודת חן בטבע
+                        </span><input class="form-check-input" type="checkbox" id="graceNature" style="float: right;">
+                    </label>
+                </div>  
+			</div> <!-- card-body.// -->
+		</div><input type="button" id="sort-btn" align="right" style="margin-right:20px;width:100%;color:blue" value="סנן">
+	</div> <!-- card.// -->
+    
+ </div>
+    
+<!-- Page content -->
+<div style="width: 80%">
+ 	<div align="right" class="w3-content w3-padding-large w3-margin-top  "  style="font-size:4px;margin-left:50px">
+<h1 >שמורות טבע, גנים לאומיים, מסלולי טיולים בארץ </h1>
+<hr style="border-color:black;border-width: 3px;">
+	<br><br><br><br><br><br><br>
+
+  </div>
+  <div style="float: left; padding-left:20px;width:1000px" >
+       <a href="sec.html?siteName=זוויתן תחתון ובריכת המשושים" >
+        <img src="https://www.weekend.co.il/Images/Tracks/pool.jpg" width="1000" height="500"  >
+       </a>
+      <div  align="right" style="padding-left:20px">
+        <p><b>זוויתן תחתון ובריכת המשושים</b></p>
+          <p>נחל משושים (נַחַל מְשֻׁשִּׁים) הוא הנחל הארוך ביותר ברמת הגולן. במרכז הנחל, לסלעי הגדות צורות גאולוגיות של משושים הנראות ביתר שאת בברכת המשושים בה לכל קירות הבריכה, ולסלעים המקיפים אותה, צורת משושה, שנתנה לנחל את שמו..<a href="sec.html?siteName=זוויתן תחתון ובריכת המשושים"> עוד </a></p>
+      </div>
+    </div>
+    
+	   <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>  <br><br><br><br><br><br>
+
+
+   <div style="float: left; padding-left:20px;width:1000px;" >
+       <a href="sec.html?siteName=גן לאומי גן השלושה - הסחנה" >
+        <img src="https://www.parks.org.il/wp-content/uploads/2017/09/DSC_6331.jpg"  width="1000" height="500" >
+       </a>
+      <div  align="right" style="padding-left:20px">
+        <p><b>גן לאומי גן השלושה - הסחנה</b></p>
+        <p>השלושה (הסחנה)
+ההסטוריה, המורשת, הטבע
+פארק מים מפורסם במערב עמק המעיינות (עמק בית שאן). ייחודו של גן השלושה במעיינותיו החמימים ובבריכות הרחצה הטבעיות שבו. בתחומו יש גם מוזיאון ארכיאולוגי ושחזור אתר ההתיישבות ההיסטורי של קיבוץ תל עמל, שעלה על הקרקע ופתח את תקופת יישובי חומה ומגדל..<a href="sec.html?siteName=גן לאומי גן השלושה - הסחנה"> עוד </a></p>
+      </div>
+    </div>
+	
+	 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>  <br><br><br><br><br><br>
+	 
+     <!-- <div class="w3-third w3-container w3-margin-bottom"> -->
+	  <div style="float: left; padding-left:20px;width:1000px;">
+       <a href="sec.html?siteName=יער שוויץ" >
+        <img src="http://www.eyarok.org.il/images/TripImages/adminUploads/616dbb62-07fa-432d-97ea-f2a34f281950_big.jpg" width="1000" height="500" >
+       </a>
+      <!-- <div align="right" class="w3-container w3-margin-bottom w3-white" > -->
+	  <div  align="right" style="padding-left:20px">
+        <p><b>יער שוויץ</b></p>
+        <p>ער שווייץ מכסה את המדרון התלול היורד מרמת פוריה לטבריה ולכנרת. שיאי המתלול מתנשאים לגובה של יותר מ-400 מטר מעל לכנרת, דבר המבטיח למטיילים נופים מרהיבים לעבר האגם, הגולן, החרמון והרי הגליל. העיר טבריה, הממוקמת למרגלותיו הצפוניים של היער, נראית כמו על כף היד ממש<a href="sec.html?siteName=יער שוויץ"> עוד </a></p>
+      </div>
+    </div>
+	 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>  <br><br><br><br><br><br>
+	 
+</div>
+  <!-- Contact -->
+  
+  <div align="right" class="w3-light-grey w3-padding-large w3-padding-32 w3-margin-top" id="contact">
+
+    <h3 class="w3-center">Contact</h3>
+    <hr>
+    <p style= "margin-right:20px;">,שלום רב<br>
+<p style= "margin-right:20px;">.אנו מודים לך על בחירתך לגלוש באתר שלנו להתאהב בארץ מחדש</p>
+<p style= "margin-right:20px;">.נשמח לקבל את פנייתך - שאלות, הארות, הערות וכל נושא שבא לך להפנות אלינו</p>
+<p style= "margin-right:20px;">לידיעתך - אנו מתחייבים לשמור אצלנו את פרטי ההתקשרות הנמסרים לנו בעת ההרשמה, כולל כתובת דואר </p>
+<p style= "margin-right:20px;">אלקטרוני, לא להעבירם לשום גורם אחר ולא לעשות בהם שימוש למעט לצורך משלוח מידע ו/או עדכונים ואו חומר </p>
+<p style= "margin-right:20px;">.פרסומי בדבר השרותים והמוצרים השונים אותם אנו מספקים</p>
+<p style= "margin-right:20px;">בכל עת נאפשר לך להודיע לנו על רצונך בהסרה מרשימות התפוצה שלנו ואנו נעשה כרצונך </p>
+<p style= "margin-right:20px;">כמו כן - אם אינך מעוניין/ת לקבל את המידע מאיתנו תוכל/י להודיע לנו על כך בדואר אלקטרוני לכתובת</p>
+
+      <form target="_blank" style="margin-right:20px;">
+          <div class="w3-section">
+              <label>שם</label>
+              <input class="w3-input w3-border" type="text" required id="username">
+          </div>
+          <div class="w3-section">
+              <label>דואר אלקטרוני</label>
+              <input class="w3-input w3-border" type="text" required name="email">
+          </div>
+          <div class="w3-section">
+              <label>הודעה</label>
+              <input class="w3-input w3-border" required id="message">
+          </div>
+          <button onclick="sendMail()" class="w3-button w3-block w3-dark-grey">שלח</button>
+
+
+          <br>
+          <img src="images.png" width="100" height="70" style="margin-right:54%;margin-left:46%;">
+      </form>
+  </div>
+
+<!-- End page content -->
+
+   
+    <script>
+
+var $star_rating = $('.star-rating .fa');
+
+var SetRatingStar = function() {
+  return $star_rating.each(function() {
+    if (parseInt($star_rating.siblings('input.rating-value').val()) >= parseInt($(this).data('rating'))) {
+      return $(this).removeClass('fa-star-o').addClass('fa-star');
+    } else {
+      return $(this).removeClass('fa-star').addClass('fa-star-o');
+    }
+  });
+};
+
+$star_rating.on('click', function() {
+  $star_rating.siblings('input.rating-value').val($(this).data('rating'));
+  return SetRatingStar();
+});
+
+SetRatingStar();
+$(document).ready(function() {
+
+});
+</script>
+    <script src="firebase.js"></script>
+    <script>
+        const sites = new Array();
+        var cnt = 1;
+        var saveButton = document.getElementById("search-btn");
+        var name = "זוויתן תחתון ובריכת המשושים";
+        saveButton.addEventListener("click", openSec);
+        var dataList = document.getElementById("dataList");
+        
+        var sortButton = document.getElementById("sort-btn");
+        var name = "זוויתן תחתון ובריכת המשושים";
+        sortButton.addEventListener("click", sort);
+
+
+       var configration = {
+               apiKey: "AIzaSyDu0cid-tqrD_c5-3WVxYyzV_1rXEVpMoc",
+               authDomain: "sites-59ce8.firebaseapp.com",
+               databaseURL: "https://sites-59ce8.firebaseio.com",
+               projectId: "sites-59ce8",
+               storageBucket: "sites-59ce8.appspot.com",
+               messagingSenderId: "341492753223"
+       };
+
+       firebase.initializeApp(configration);
+     
+       //     var realName = document.getElementById("realName").value;
+       // var comment = document.getElementById("comment").value;
+       //   alert(realName + " " + comment);
+       //   var starRating = document.getElementById("starRating").value;
+       //     alert("* " +starRating);
+       //var UserID = queries[0].split("=")[1];
+       var MyPath = firebase.database().ref('Sites');
+
+      
+           MyPath.on('child_added', function (childSnapshot) {
+              
+               dataList.innerHTML += ' <option  value="' + childSnapshot.key + '">' + childSnapshot.key + '</option>';
+             //  sites.push(childSnapshot.key);
+             //  alert(childSnapshot.key)
+           });
+       
+           function sort() {
+               var MyPath = firebase.database().ref('Sites');
+              
+               
+               MyPath.on('child_added', function (childSnapshot) {
+                 //  alert( document.getElementById("minRating").value);
+                 //  alert(document.getElementById("maxRating").value);
+                   
+                   var rated = getRated(childSnapshot.val().feedback.comments);
+                 //  alert(rated);
+                   if (!document.getElementById("fire").checked || childSnapshot.val().Properties.fire != 0) {
+                      if (!document.getElementById("family").checked  || childSnapshot.val().Properties.family != 0) 
+                          if (!document.getElementById("swimming").checked  || childSnapshot.val().Properties.swim != 0)
+                              if (!document.getElementById("free").checked  || childSnapshot.val().Properties.cost == 0)
+                                  if (!document.getElementById("walking").checked  || childSnapshot.val().Properties.attraction.includes("מסלול הליכה"))
+                                     if (!document.getElementById("bicycle").checked  || childSnapshot.val().Properties.bysicle != 0)
+                                         if (!document.getElementById("wheelchair").checked  || childSnapshot.val().Properties.wheelchair != 0)
+                                             if ($('input[name=areaZone]:checked').val()=="הכל" || childSnapshot.val().area ==$('input[name=areaZone]:checked').val())
+                                                if (!document.getElementById("water").checked  || childSnapshot.val().nature.includes("מים"))
+                                                     if (!document.getElementById("river").checked  || childSnapshot.val().nature.includes("אגם"))
+                                                        if (!document.getElementById("lake").checked  || childSnapshot.val().nature.includes("אגם"))
+                                                            if (!document.getElementById("park").checked || childSnapshot.val().nature.includes("פארק"))
+                                                                if (!document.getElementById("graceNature").checked || childSnapshot.val().nature.includes("נקודת חן"))
+                                                                    if (document.getElementById("minRating").value <= rated && document.getElementById("maxRating").value >= rated)
+                                                                        sites.push(childSnapshot.key);
+                       //  alert(childSnapshot.key);
+                   }
+                   
+               });
+
+               var list = '';
+             //  alert(1);
+            //   for(siteN in sites){
+               for (j = 0; j < sites.length ; j++) {
+                   
+               //    alert(sites[j]);
+                   list += sites[j] + ';';
+               }
+               if (list != '')
+                   window.location.href = "third.html" + "?siteName=" + list;
+               
+               else alert("לא נמצאו אתרים");
+           }
+         
+           function openSec() {
+               var queryString = "?siteName=" + document.getElementById("search-input").value;
+               window.location.href = "sec.html" + queryString;
+           }
+           function getRated(comments) {
+               var ratings = new Array();
+
+               for (n = 0 ; n < comments.length ; n++) {
+                   var comment = comments[n];
+                  
+                   ratings.push(comment[2]);
+                   
+               }
+               var totalComments = 0;
+               var sum = 0;
+               for (n = 0 ; n < ratings.length ; n++) 
+                   sum += parseInt(ratings[n]);
+                  
+               return Math.round(sum / ratings.length);
+           }
+           
+           function sendMail() {
+      
+               window.open('mailto:itour.information@gmail.com?subject=message from ' + document.getElementById("username").value + '&body=' + document.getElementById("message").value);
+           }
+    </script>
+
+
+ 
+</body>
+</html>

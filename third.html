@@ -1,0 +1,207 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>iTour</title>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="images.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="w3.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="bootstrap-min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="bootstrap-min.js"></script>
+
+
+    <script src="jquery-min.js"></script>
+    <script src="popper-min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+</head>
+  <body align="center" width="80%" style="background-color: #E6E6E6">
+
+  <!-- Header -->
+<header class="w3-display-container w3-content w3-center" style="max-width:1500px">
+    <a href="hostingstart.html">
+        <img src="pan.JPG" alt="Me" width="100%" height="300">
+    </a>
+    <div class="w3-display-middle w3-padding-large w3-border w3-wide w3-text-light-grey w3-center">
+        <a href="hostingstart.html" style="color:white;text-decoration:none"> <h1 class="w3-hide-medium w3-hide-small w3-xxxlarge">ארץ ישראל</h1></a>
+
+        <h3 class="w3-hide-medium w3-hide-small">טיולי טבע</h3>
+    </div>
+   <!-- Navbar (placed at the bottom of the header image) -->
+  <div align="right" class="w3-bar w3-light-grey w3-round w3-display-bottommiddle w3-hide-small"  style="bottom:-16px">
+    <a href="third.html?area=צפון" class="w3-bar-item w3-button">אתרים בצפון</a>
+    <a href="third.html?area=מרכז" class="w3-bar-item w3-button">אתרים במרכז</a>
+    <a href="third.html?area=דרום" class="w3-bar-item w3-button">אתרים בדרום </a>
+	
+  </div>
+    </header>
+	 <br><br>
+
+  <h1 align="center" id="title"> טיולים ב</h1>
+
+ <br><br>
+ 
+ <hr style="border-color:grey;border-width: 2px;">
+
+ <div class="myDiv" id="listOfSites">
+    
+     
+ </div> 
+<br>
+	  <hr style="border-color:grey;border-width: 2px;">
+
+
+
+	  
+  <footer>
+
+
+  </footer>
+      <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+      <script>
+
+
+    var queryString = decodeURIComponent(window.location.search);
+    queryString = queryString.substring(1);
+    
+    var area = '';
+   var queries = queryString.split("?");
+   var sites = new Array();
+   const stringArray = queryString.split("?");
+   var byArea = false; 
+  // alert(stringArray[0].split('=')[0]);
+   if (stringArray[0].split('=')[0] == 'area') {
+       area = stringArray[0].split('=')[1];
+       byArea = true;
+       document.getElementById("title").innerHTML += area;
+   }
+   else {
+       sites = (stringArray[0].split('=')[1]).split(";");
+       document.getElementById("title").innerHTML = " רשימת אתרים מוצעים";
+   }
+
+     //  var area = stringArray[0].split('=')[1].replace(new RegExp(";", 'g'), "");
+   
+            var configration = {
+                    apiKey: "AIzaSyDu0cid-tqrD_c5-3WVxYyzV_1rXEVpMoc",
+                    authDomain: "sites-59ce8.firebaseapp.com",
+                    databaseURL: "https://sites-59ce8.firebaseio.com",
+                    projectId: "sites-59ce8",
+                    storageBucket: "sites-59ce8.appspot.com",
+                    messagingSenderId: "341492753223"
+            };
+
+            firebase.initializeApp(configration);
+
+            var cnt = 0;
+            var MyPath = firebase.database().ref('Sites');
+
+            MyPath.on('child_added', function (childSnapshot) {
+                var rated = getRated(childSnapshot.val().feedback.comments);
+                if (byArea==true){
+                    if (childSnapshot.val().area == this.area) {
+
+                        document.getElementById("listOfSites").innerHTML +=
+        ' <div class="content" id="cnt'+cnt+'">\
+         <a href="sec.html?siteName=' + childSnapshot.key + '">\
+                  <img src="' + childSnapshot.val().Properties.images[0] + '">\
+              </a>\
+        <a href="sec.html?siteName=' + childSnapshot.key + '"> <h3>' + childSnapshot.key + '</h3> </a>\
+         <p align="right">' + replaceAll(childSnapshot.val().Properties.details.info.substring(1, 300), "@", " ") + '</p></div>';
+  for (n = 1; n <= 5 - (5 - rated) ; n++) 
+                        document.getElementById("cnt"+cnt).innerHTML += '<span class="fa fa-star" style="color: blue;" data-rating="' + (n + 1) + '"></span>';
+                        
+                        for (n = 1; n <= (5 - rated) ; n++)
+                            document.getElementById("cnt" + cnt).innerHTML += '<span class="fa fa-star-o" style="color: blue;" data-rating="' + (n + 1) + '"></span>';
+                    
+                       
+     
+     
+                    }
+                
+                    
+
+                }
+                else {
+                    for (j = 0; j < sites.length ; j++) {
+
+                        if ((sites[j].indexOf(childSnapshot.key) > -1)) {
+
+                            document.getElementById("listOfSites").innerHTML +=
+            ' <div class="content" id="cnt' + cnt + '">\
+         <a href="sec.html?siteName=' + childSnapshot.key + '">\
+                  <img src="' + childSnapshot.val().Properties.images[0] + '">\
+              </a>\
+        <a href="sec.html?siteName=' + childSnapshot.key + '"> <h3>' + childSnapshot.key + '</h3> </a>\
+                  <p align="right">' + replaceAll(childSnapshot.val().Properties.details.info.substring(1, 300), "@", " ") + '</p></div>';
+                            for (n = 1; n <= 5 - (5 - rated) ; n++)
+                                document.getElementById("cnt" + cnt).innerHTML += '<span class="fa fa-star" style="color: blue;" data-rating="' + (n + 1) + '"></span>';
+
+                            for (n = 1; n <= (5 - rated) ; n++)
+                                document.getElementById("cnt" + cnt).innerHTML += '<span class="fa fa-star-o" style="color: blue;" data-rating="' + (n + 1) + '"></span>';
+
+
+
+                        }
+
+                    }
+
+                    
+                }
+                    //  sites.push(childSnapshot.key);
+                cnt++;
+
+                function replaceAll(str, find, replace) {
+                    return str.replace(new RegExp(find, 'g'), replace);
+                }
+                
+                function getRated(comments) {
+                    var ratings = new Array();
+
+                    for (n = 0 ; n < comments.length ; n++) {
+                        var comment = comments[n];
+
+                        ratings.push(comment[2]);
+
+                    }
+                    var totalComments = 0;
+                    var sum = 0;
+                    for (n = 0 ; n < ratings.length ; n++)
+                        sum += parseInt(ratings[n]);
+
+                    return Math.round(sum / ratings.length);
+                }
+            });
+
+    
+    </script>
+
+      <style>
+
+
+ .content {
+   
+    text-align:right;   
+    border: 1px solid gray;
+    padding: 20px;
+    overflow: hidden;
+}
+
+.content p h3{
+    text-align:right;
+     
+}
+.content img {
+    padding: 5px;
+    width:180px;
+    float: right;
+}
+a:link {
+    color: green;
+    text-decoration: none;
+}
+      </style>
+   
+  </body>
+</html>

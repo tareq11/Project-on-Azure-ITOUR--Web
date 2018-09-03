@@ -1,0 +1,517 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>iTour</title>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="images.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="w3.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="bootstrap-min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="bootstrap-min.js"></script>
+
+
+    <script src="jquery-min.js"></script>
+    <script src="popper-min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+</head>
+  <body width="100%" style="background-color: #E6E6E6">
+
+  <!-- Header -->
+<header class="w3-display-container w3-content w3-center" style="max-width:1500px">
+    <a href="hostingstart.html">
+        <img src="pan.JPG" alt="Me" width="100%" height="300"></a>
+        <div class="w3-display-middle w3-padding-large w3-border w3-wide w3-text-light-grey w3-center">
+            <a href="hostingstart.html" style="color:white;text-decoration:none"> <h1 class="w3-hide-medium w3-hide-small w3-xxxlarge">ארץ ישראל</h1></a>
+
+            <h3 class="w3-hide-medium w3-hide-small">טיולי טבע</h3>
+        </div>
+
+        <!-- Navbar (placed at the bottom of the header image) -->
+        <div align="right" class="w3-bar w3-light-grey w3-round w3-display-bottommiddle w3-hide-small" style="bottom:-16px">
+            <a href="third.html?area=צפון" class="w3-bar-item w3-button">אתרים בצפון</a>
+            <a href="third.html?area=מרכז" class="w3-bar-item w3-button">אתרים במרכז</a>
+            <a href="third.html?area=דרום" class="w3-bar-item w3-button">אתרים בדרום </a>
+
+        </div>
+</header>
+<br><br>
+
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main " style="margin-left:160px;margin-right:60px">
+
+  <!-- Push down content on small screens -->
+  <div class="w3-hide-large" style="margin-top:80px"></div>
+
+  <!-- Slideshow Header -->
+  <div align="right" class="w3-container" id="apartment">
+  <!-- Slideshow Header -->
+      <h2 class="w3-text-green" id="siteName" ></h2>
+      <br><br>
+      <div class="w3-container" id="apartment">
+
+      
+      </div>
+      <div class="w3-row-padding w3-section">
+         
+      </div>
+      <div align="right" class="w3-container">
+          <br ><br>
+          <hr />
+
+          <h4><strong>סוג אתר</strong></h4>
+          <div align="right" id="siteType">
+
+
+          </div>
+          <hr>
+          <h4><strong>:מאפיינים</strong></h4>
+          <div class="w3-row w3-large">
+              <div class="w3-col s6">
+               
+              </div>
+              <div class="w3-col s6">
+                
+              </div>
+          </div>
+
+
+          <div class="w3-row w3-large">
+
+          </div>
+          
+          
+
+         
+          <div id="openingTimeDiv" align="right">
+              
+          </div>
+          <hr>
+
+          <h4><strong>דירוג האתר</strong></h4>
+          <div align="right" >
+              <div class="rated" >
+                  
+              </div>
+          </div>
+
+
+          <hr>
+
+          <h4><strong>מידע על האתר</strong></h4>
+          <p id="info">.</p>
+          <hr>
+
+          <h4><strong>? איך מגיעים </strong></h4>
+          <p id="arrive"></p>
+
+
+
+          <hr>
+          <h4><strong>מפת האיזור</strong></h4>
+
+          <div id="map" class="iframe-container">
+              <iframe id="location" src="" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+          </div>
+          <hr>
+
+          <h4>הוסף חוות דעת</h4>
+          <form method="POST" style="text-align:right">
+
+              שם <br>
+              <input type="text" id="realName"><br>
+              <br>
+
+              חוות דעת <br>
+              <textarea style="text-align:right" id="commenttxt" rows="5" cols="40"></textarea><br><br>
+              חוות דעת שלך <br>
+              <div align="right" class="col-lg-12">
+                  <div class="star-rating">
+                      <span class="fa fa-star-o" style="color: blue;" data-rating="1"></span>
+                      <span class="fa fa-star-o" style="color: blue;" data-rating="2"></span>
+                      <span class="fa fa-star-o" style="color: blue;" data-rating="3"></span>
+                      <span class="fa fa-star-o" style="color: blue;" data-rating="4"></span>
+                      <span class="fa fa-star-o" style="color: blue;" data-rating="5"></span>
+                      <input type="hidden" name="starRating" class="rating-value">
+
+                  </div>
+              </div>
+              <br>
+              <input type="button" name="addComment" onclick="addCommentFunction()" align="right" style="margin-right:20px;" value="שלח">
+          </form>
+
+             
+        
+          <hr>
+
+          <h4><strong>:חוות דעת</strong></h4>
+
+          <div class="comm" style="width:60%">
+
+          </div>
+         
+        
+      </div>
+  <footer class="w3-container w3-padding-16" style="margin-top:32px"> <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green"></a></footer>
+
+<!-- End page content -->
+</div>
+
+
+
+
+  
+<br><br>
+
+<script>
+function myMap() {
+  var mapCanvas = document.getElementById("map");
+  var mapOptions = {
+    center: new google.maps.LatLng(51.5, -0.2), zoom: 10
+  };
+  var map = new google.maps.Map(mapCanvas, mapOptions);
+}
+</script>
+
+<script src="https://www.google.com/maps/@32.939492,35.666891,13z?hl=iw"></script>
+<script>
+
+
+
+// Script to open and close sidebar when on tablets and phones
+function w3_open() {
+    document.getElementById("mySidebar").style.display = "block";
+    document.getElementById("myOverlay").style.display = "block";
+}
+ 
+function w3_close() {
+    document.getElementById("mySidebar").style.display = "none";
+    document.getElementById("myOverlay").style.display = "none";
+}
+
+// Slideshow Apartment Images
+var slideIndex = 1;
+showDivs(slideIndex);
+
+function plusDivs(n) {
+  showDivs(slideIndex += n);
+}
+
+function currentDiv(n) {
+  showDivs(slideIndex = n);
+}
+
+function showDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("demo");
+  if (n > x.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = x.length}
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+     dots[i].className = dots[i].className.replace(" w3-opacity-off", "");
+  }
+  x[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " w3-opacity-off";
+}
+</script>
+<script>
+var $star_rating = $('.star-rating .fa');
+
+var SetRatingStar = function() {
+  return $star_rating.each(function() {
+    if (parseInt($star_rating.siblings('input.rating-value').val()) >= parseInt($(this).data('rating'))) {
+      return $(this).removeClass('fa-star-o').addClass('fa-star');
+    } else {
+      return $(this).removeClass('fa-star').addClass('fa-star-o');
+    }
+  });
+};
+
+$star_rating.on('click', function() {
+  $star_rating.siblings('input.rating-value').val($(this).data('rating'));
+  return SetRatingStar();
+});
+
+SetRatingStar();
+$(document).ready(function() {
+
+});
+
+</script>
+<script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+   <script>
+
+       var queryString = decodeURIComponent(window.location.search);
+       queryString = queryString.substring(1);
+    
+
+       var queries = queryString.split("?");
+   
+       const stringArray = queryString.split("?");
+  
+        var name = stringArray[0].split('=')[1];
+    //   var name = "זוויתן תחתון ובריכת המשושים";
+       
+      // document.getElementByName("addComment").addEventListener("click", "addCommentFunction");
+      // alert(document.getElementById("addComment").value);
+        var config = {
+            apiKey: "AIzaSyDu0cid-tqrD_c5-3WVxYyzV_1rXEVpMoc",
+            authDomain: "sites-59ce8.firebaseapp.com",
+            databaseURL: "https://sites-59ce8.firebaseio.com",
+            projectId: "sites-59ce8",
+            storageBucket: "sites-59ce8.appspot.com",
+            messagingSenderId: "341492753223"
+};
+
+firebase.initializeApp(config);
+
+
+
+//var name = "זוויתן תחתון ובריכת המשושים";
+
+var cnt=0;
+var Data;
+var totalComments = 0;
+       //var UserID = queries[0].split("=")[1];
+var MyPath = firebase.database().ref('Sites/' + name); 
+
+MyPath.once('value')
+  .then(function (GetData) {
+
+      Data = GetData.val();
+      
+      if (Data) {
+         setData(Data, name);
+      }
+      else {
+          alert('No Data');
+      }
+  });
+
+
+function replaceAll(str, find, replace) {
+    return str.replace(new RegExp(find, 'g'), replace);
+}
+function setData(data , name ) {
+ 
+    // Title
+    document.getElementById("siteName").innerHTML = name;
+
+   
+    // Info
+    document.getElementById("info").innerHTML = replaceAll(data.Properties.details.info, "@", "<br/>");
+    // Arrive 
+    document.getElementById("arrive").innerHTML = " " + data.Properties.details.arrive;
+
+    // Location
+    document.getElementById("location").src = data.Properties.details.location;
+ 
+    // openning Time
+    if (data.Properties.details.time != 0) {
+        
+        document.getElementById("openingTimeDiv").innerHTML='<hr> <h4 id="openingTimeTitle"><strong>שעות פתחיה</strong></h4>\
+        <br><p align="right">' + replaceAll(data.Properties.details.time, "@", "<br/>") + '</p>';
+    }
+    
+    // Site type
+    document.getElementById("siteType").innerHTML ='<p align="right">' + data.nature +'</p>';
+
+    
+    handleProperties(data.Properties);
+
+    
+    addImages(data.Properties.images);
+    addSlider(data.Properties.images);
+ 
+    
+    extractCommentsValues(data.feedback.comments);
+    
+    
+    document.getElementsByClassName("demo w3-opacity w3-hover-opacity-off")[0].click();
+}
+function handleProperties(prop) {
+    
+    // Cost
+    if (prop.cost == 0)
+        addPropertyToDiv("money", " חינם");
+    else
+        addPropertyToDiv("money", prop.cost);
+    // Cost
+    if (prop.bysicle != 0)
+        addPropertyToDiv("bicycle", prop.bysicle);
+    // Cost
+    if (prop.eveningTour != 0)
+        addPropertyToDiv("moon-o", prop.eveningTour);
+    // Cost
+    if (prop.family != 0)
+        addPropertyToDiv("users", prop.family);
+    // Cost
+    if (prop.jeep != 0)
+        addPropertyToDiv("jeep", prop.jeep);
+    // Cost
+    if (prop.fire != 0)
+        addPropertyToDiv("fire", prop.fire);
+
+    if (prop.swim != 0)
+        addPropertyToDiv("swimming", prop.swim);
+
+    if (prop.viewpoint != 0)
+        addPropertyToDiv("eye", prop.viewpoint);
+
+    if (prop.wheelchair != 0)
+        addPropertyToDiv("wheelchair", prop.wheelchair);
+
+    // Accessibility
+    addPropertyToDiv("blind", prop.accessibility);
+}
+function addPropertyToDiv( icon ,propertyValue) {
+    var selectedDiv;
+    var content = '';
+ 
+    selectedDiv = document.getElementsByClassName("w3-col s6")[cnt % 2];
+    cnt++;
+    content = selectedDiv.innerHTML;
+    selectedDiv.innerHTML = content + '<p>'+propertyValue+'  <i class="fa fa-'+icon+'"></i></p>';
+}
+function addImages(photos) {
+    var images = '';
+    for (n = 0; n < photos.length ; n++) {
+
+
+        images +='\
+    <div class="w3-display-container mySlides">\
+    <img  src="' + photos[n] + '" style="width:100%;margin-bottom:-6px">\
+    </div>';        
+    
+    }
+
+    var cc = document.getElementsByClassName("w3-container");
+    
+    cc[1].innerHTML = images;cc[1]. style.width = ("70%");
+}
+
+function addSlider(photos) {
+    var images = '';
+
+    for (n = 0; n < photos.length ; n++) {
+
+
+
+        images +='\
+    <div class="w3-col s3">\
+      <img  class="demo w3-opacity w3-hover-opacity-off" src="' + photos[n] + '" style="width:100%;cursor:pointer" onclick="currentDiv('+(n+1)+')">\
+    </div>';        
+    }
+
+    var cc = document.getElementsByClassName(" w3-row-padding w3-section");
+   
+
+    cc[0].innerHTML = images; cc[0].style.width = ("70%");
+}
+
+function displayComments(comments, names ,ratings) {
+    
+    
+    var com = '';
+    for (n = 0; n < comments.length ; n++) {
+        var rate = ratings[n];
+        var content = '';
+        for (j = 1; j <= 5 - (5 - rate) ; j++) {
+
+            content += '<span class="fa fa-star" style="color: gray;" data-rating="' + (j + 1) + '"></span>';
+        }
+        for (j = 1; j <= (5 - rate) ; j++) {
+
+            content += '<span class="fa fa-star-o" style="color: gray;" data-rating="' + (j + 1) + '"></span>';
+        }
+        content += '<input type="hidden" name="whatever1" class="rating-value" value="2.56">';
+      //  com += ' <textarea style="text-align:right; border:1px; border-style:solid; border-color:#8080ff; padding: 0.2em;border-radius: 10px;" disabled>' + comments[n] +" : "+names[n] + '</textarea> <br>';
+        com += '<fieldset style="text-align:right; padding: 10px;border-radius: 10px; border:1px solid #00802b;">\
+       <legend style="text-align:right; border:1px; border-style:solid; border-color:#00cc44;border-radius: 10px;width:10%;font-size:16px;"> ' + names[n] + ' </legend> ' + comments[n] + '<br> ' + content + '</fieldset> <br>';
+
+    }
+    document.getElementsByClassName("comm")[0].innerHTML = com;
+}
+function setRated(rating) {
+   
+    var sum = 0;
+    for (var i = 0; i < rating.length; i++) {
+        sum += parseInt(rating[i], 10); 
+    }
+
+    var rate = Math.round(sum / rating.length);
+    var content = '';
+    for (n = 1; n <= 5-(5-rate) ; n++) {
+
+        content += '<span class="fa fa-star" style="color: blue;" data-rating="' + (n + 1) + '"></span>';
+    }
+    for (n = 1; n <=  (5 - rate) ; n++) {
+
+        content += '<span class="fa fa-star-o" style="color: blue;" data-rating="' + (n + 1) + '"></span>';
+    }
+    content += '<input type="hidden" name="whatever1" class="rating-value" value="2.56">';
+    document.getElementsByClassName("rated")[0].innerHTML = content;
+}
+
+function extractCommentsValues(comments) {
+
+    var comms = new Array();
+    var names = new Array();
+    var ratings = new Array();
+
+    for (n = 0 ; n < comments.length ; n++) {
+        var comment = comments[n];        
+        names.push(comment[0]);
+        comms.push(comment[1]);
+        ratings.push(comment[2]);
+        totalComments ++;
+    }
+    displayComments(comms, names ,ratings);
+    setRated(ratings);
+}
+function calculateRating() {
+
+    var starClassContent = document.getElementsByClassName("star-rating")[0].innerHTML;
+    var count = (starClassContent.match(/fa fa-star-o/g) || []).length;
+    return 5 - count;
+
+}
+function addCommentFunction() {
+
+    var realName = document.getElementById("realName").value;
+
+    var comment = document.getElementById("commenttxt").value;
+
+    var starRating = calculateRating();
+
+    if (realName != '' && comment != '' && (starRating > 0 && starRating <= 5))
+        searchFunc(name, realName, comment, starRating, totalComments);
+    else
+        alert("נא למלא שדות חובה ");
+    
+}
+function searchFunc(siteName, userName, comment, rating, totalComments) {
+
+    if (userName != '' && comment != '') {
+        alert("תודה " + userName + " , חוות הדעת שלך נקלטה בהצלחה");
+
+        var queryString = "?siteName=" + siteName + "?userName=" + userName + "?comment=" + comment + "?rating=" + rating + "?totalComments=" + totalComments;
+        window.location.href = "uploadComment.html" + queryString;
+    }
+    else
+        alert("נא למלא שדות חובה");
+}
+    </script>
+    
+   
+
+</body>
+</html>
