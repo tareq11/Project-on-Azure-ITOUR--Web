@@ -1,7 +1,7 @@
 # Project-on-Azure-ITOUR--Web
 https://itour.azurewebsites.net/
 
-This project contains a variety of technologies that we used to develop the site and bring it to the air
+This project contains a variety of technologies that we used to develop the site and bring it to the air:
 1. BootStrap - is an open-source client-side environment that contains a collection of tools for creating Web applications and websites that have a huge collection of front-end Web page design CSS classes. We used BootStrap to design the site at the buttons level and to design the front end of our site.
 
 2. CSS - Cascading Style Sheets is a design language used to describe and display a document written in HTML. CSS describes how elements will be displayed on the screen, document, or any other media. It saves a lot of time by controlling multiple pages simultaneously. In this project we used CSS ready libraries from W3CSS to design the pages of the site.
